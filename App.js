@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import { StyleSheet, Text, View, TextInput, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Dimensions, TouchableOpacity } from 'react-native';
 
 export default function App() {
   const [price, setPrice] = useState('')
@@ -25,13 +25,21 @@ export default function App() {
               />
               {price && discount
               ?
-                  <>
+                <View style={{flexDirection:'row',justifyContent:'space-between',width:'100%',alignItems:'center',paddingHorizontal:'5%'}}>
+                  <View>
                     <Text style={styles.details}>Final Price:{price - price*(discount/100)}</Text>
                     <Text style={styles.details}>You saved:{price*(discount/100)}</Text>
-                  </>
+                  </View>
+                  <TouchableOpacity style={styles.btn}>
+                     <Text style={{color:'white',fontSize:15,fontWeight:'bold'}}>Save</Text>
+                  </TouchableOpacity>
+                </View>
               :
                 null
               }
+              <TouchableOpacity style={{marginVertical:10,}}>
+                     <Text style={{color:'grey',fontSize:15,fontWeight:'bold'}}>View History</Text>
+              </TouchableOpacity>
               </View>
     </View>
   );
@@ -64,12 +72,21 @@ const styles = StyleSheet.create({
   },
   details:{
     marginVertical:5,
-    fontSize:16
+    fontSize:16,
   },
   header:{
     fontSize:20,
     color:'black',
     fontWeight:'bold',
     marginVertical:20,
+  },
+  btn:{
+    backgroundColor:'#05C7F2',
+    width:80,
+    height:40,
+    justifyContent:'center',
+    alignItems:'center',
+    borderRadius:5,
+    marginVertical:10
   }
 });
