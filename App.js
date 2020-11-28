@@ -27,8 +27,8 @@ export default function App() {
               ?
                 <View style={{flexDirection:'row',justifyContent:'space-between',width:'100%',alignItems:'center',paddingHorizontal:'5%'}}>
                   <View>
-                    <Text style={styles.details}>Final Price:{price - price*(discount/100)}</Text>
-                    <Text style={styles.details}>You saved:{price*(discount/100)}</Text>
+                    <Text style={styles.details}>Final Price:{parseFloat(price - price*(discount/100)).toFixed(2)}</Text>
+                    <Text style={styles.details}>You saved:{parseFloat(price*(discount/100)).toFixed(2)}</Text>
                   </View>
                   <TouchableOpacity style={styles.btn}>
                      <Text style={{color:'white',fontSize:15,fontWeight:'bold'}}>Save</Text>
